@@ -13,3 +13,31 @@
 - **React Hooks:** Funksional komponentlarda state va boshqa React xususiyatlaridan foydalanishga imkon beradi.
 
 React dasturchilarga zamonaviy, dinamik va murakkab foydalanuvchi interfeyslarini yaratishda katta yordam beradi.
+
+# `useState` Nima?
+
+**`useState`** — bu React'dagi *hook* bo'lib, funksional komponentlarda state (holat) boshqarish uchun ishlatiladi. `useState` yordamida komponentning ichki holatini belgilash va keyinchalik o'zgartirish mumkin.
+
+## `useState` Hook'ining Ishlatilishi
+
+Quyida `useState` qanday ishlatilishini ko'rsatadigan oddiy misol keltirilgan:
+
+```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+  // useState hook bilan count o'zgaruvchisini va uni o'zgartiruvchi setCount funksiyasini yaratamiz
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Siz {count} marta bosdingiz</p>
+      <button onClick={() => setCount(count + 1)}>
+        Bosish
+      </button>
+    </div>
+  );
+}
+
+export default Counter;
+
