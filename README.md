@@ -14,6 +14,22 @@
 
 React dasturchilarga zamonaviy, dinamik va murakkab foydalanuvchi interfeyslarini yaratishda katta yordam beradi.
 
+# JSX (JavaScript XML) Haqida
+
+JSX (JavaScript XML) — bu React'da ishlatiladigan sintaksis kengaytmasi bo‘lib, JavaScript kodida HTML-ga o‘xshash sintaksisda UI komponentlarini yaratishga imkon beradi. JSX oddiy JavaScript emas, ammo React bu kodni shaxsiy `createElement` funksiyasiga kompilyatsiya qiladi.
+
+## JSXning Afzalliklari
+
+### 1. **Tushunarli sintaksis**
+   JSX yordamida UI komponentlarini yozish ancha sodda va tushunarli bo‘ladi, chunki u HTML-ga o‘xshash ko‘rinishda. Bu esa ishlab chiquvchilar uchun kodni o‘qish va tushunishni osonlashtiradi.
+
+### 2. **JSXda ifodalar**
+   JSX ichida JavaScript ifodalaridan foydalanish mumkin. Bu imkoniyat orqali dinamik tarkib yaratish osonlashadi.
+
+       const name = "Dunyo";
+       const element = <h1>Salom, {name}!</h1>;
+
+
 # `useState` Nima?
 
 **`useState`** — bu React'dagi *hook* bo'lib, funksional komponentlarda state (holat) boshqarish uchun ishlatiladi. `useState` yordamida komponentning ichki holatini belgilash va keyinchalik o'zgartirish mumkin.
