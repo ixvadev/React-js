@@ -22,22 +22,48 @@ React dasturchilarga zamonaviy, dinamik va murakkab foydalanuvchi interfeyslarin
 
 Quyida `useState` qanday ishlatilishini ko'rsatadigan oddiy misol keltirilgan:
 
-```javascript
-import React, { useState } from 'react';
+    
+      import React, { useState } from 'react';
+      
+      function Counter() {
+        // useState hook bilan count o'zgaruvchisini va uni o'zgartiruvchi setCount funksiyasini yaratamiz
+        const [count, setCount] = useState(0);
+      
+        return (
+          <div>
+            <p>Siz {count} marta bosdingiz</p>
+            <button onClick={() => setCount(count + 1)}>
+              Bosish
+            </button>
+          </div>
+        );
+      }
+      
+      export default Counter;
 
-function Counter() {
-  // useState hook bilan count o'zgaruvchisini va uni o'zgartiruvchi setCount funksiyasini yaratamiz
-  const [count, setCount] = useState(0);
+# `useEffect` Haqida
+
+`useEffect` — bu React kutubxonasining asosiy `hook`laridan biri bo‘lib, komponentning yanada murakkab holatlarida yon ta’sirlarni (side effects) boshqarish uchun ishlatiladi. Yon ta’sirlar — bu komponentning render jarayonidan tashqaridagi funksiyalar, masalan, brauzerdan ma’lumotlarni olish, tashqi API ga murojaat qilish, vaqt o‘tkazgichlar (`timers`) yoki subskribtsiyalarni sozlash va ularni tozalash.
+
+### 1. `useEffect`ning Asosiy Ishlatilishi
+
+```javascript
+import React, { useEffect } from 'react';
+
+function MyComponent() {
+  useEffect(() => {
+    // Bu yerda yon ta’sirlarni amalga oshirish mumkin
+    console.log('Komponent render qilindi yoki yangilandi.');
+
+    // Bu yerda tozalash funksiyasini qaytarish mumkin
+    return () => {
+      console.log('Komponent tozalanmoqda.');
+    };
+  }, []);
 
   return (
     <div>
-      <p>Siz {count} marta bosdingiz</p>
-      <button onClick={() => setCount(count + 1)}>
-        Bosish
-      </button>
+      <p>Salom, bu mening komponentim!</p>
     </div>
   );
 }
-
-export default Counter;
-
