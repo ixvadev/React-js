@@ -63,23 +63,33 @@ Quyida `useState` qanday ishlatilishini ko'rsatadigan oddiy misol keltirilgan:
 
 ### 1. `useEffect`ning Asosiy Ishlatilishi
 
-```javascript
-import React, { useEffect } from 'react';
 
-function MyComponent() {
-  useEffect(() => {
-    // Bu yerda yon ta’sirlarni amalga oshirish mumkin
-    console.log('Komponent render qilindi yoki yangilandi.');
+      import React, { useEffect } from 'react';
+      
+      function MyComponent() {
+        useEffect(() => {
+          // Bu yerda yon ta’sirlarni amalga oshirish mumkin
+          console.log('Komponent render qilindi yoki yangilandi.');
+   
+       // Bu yerda tozalash funksiyasini qaytarish mumkin
+       return () => {
+         console.log('Komponent tozalanmoqda.');
+       };
+     }, []);
+   
+     return (
+       <div>
+         <p>Salom, bu mening komponentim!</p>
+       </div>
+     );
+   }
 
-    // Bu yerda tozalash funksiyasini qaytarish mumkin
-    return () => {
-      console.log('Komponent tozalanmoqda.');
-    };
-  }, []);
+### React `useCallback` Hooki
 
-  return (
-    <div>
-      <p>Salom, bu mening komponentim!</p>
-    </div>
-  );
-}
+`useCallback` hooki Reactda callback funksiyalarni memoizatsiya qilish uchun ishlatiladi. Bu har bir renderda qayta yaratilishining oldini oladi. Bu, ayniqsa, callbacklarni bolalar komponentlariga uzatishda foydalidir, chunki u funksiyaning manzili bir xil bo'lib qolishini ta'minlaydi, agar uning bog'liqliklari o'zgarmasa.
+
+#### Sintaksis
+
+      const memoizedCallback = useCallback(() => {
+        // Bu yerda sizning callback logikangiz bo'ladi
+      }, [bog'liqlik1, bog'liqlik2, ...]);
