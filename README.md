@@ -20,6 +20,33 @@ JSX (JavaScript XML) — bu React'da ishlatiladigan sintaksis kengaytmasi bo‘l
 
 ## JSXning Afzalliklari
 
+# React-da `props`ning Vazifalari
+
+React-da `props` (bu "properties"ning qisqartmasi) komponentlarga ma'lumotlarni uzatish va ularni moslashuvchan qilish uchun ishlatiladi. Har bir React komponenti funksional yoki sinf (class) komponent bo'lib, `props` orqali tashqi ma'lumotlarni qabul qiladi. Ushbu ma'lumotlar komponentga quyidan yuqoriga, ya'ni ota-komponentdan bola-komponentga uzatiladi.
+
+## Props vazifalari:
+
+1. **Ma'lumotlarni uzatish**: 
+   `props` orqali ota-komponentdan bola-komponentga ma'lumotlarni uzatish mumkin. Masalan, biror komponentda foydalanuvchi nomi, rasmi yoki boshqa ma'lumotlarni ko'rsatish kerak bo'lsa, bu ma'lumotlar ota-komponentdan bola-komponentga `props` orqali yuboriladi.
+
+2. **Komponentni moslashuvchan qilish**: 
+   `props` komponentlarni qayta foydalanish imkonini beradi. Bir xil komponentni turli joylarda turli ma'lumotlar bilan ishlatish mumkin. Misol uchun, bir xil karta komponenti har xil kontent bilan foydalanilishi mumkin.
+
+3. **Qayta foydalanish**: 
+   `props` orqali komponentlar qayta ishlatiladi, chunki har bir yangi chaqiriqda turli `props` qiymatlari bilan bir xil komponentni ishlatish mumkin.
+
+## Misol:
+
+
+      function Hello(props) {
+        return <h1>Hello, {props.name}!</h1>;
+      }
+      
+      // Ushbu komponentni chaqirish
+      <Hello name="ixva" />
+      <Hello name="ixvadev" />
+
+
 ### 1. **Tushunarli sintaksis**
    JSX yordamida UI komponentlarini yozish ancha sodda va tushunarli bo‘ladi, chunki u HTML-ga o‘xshash ko‘rinishda. Bu esa ishlab chiquvchilar uchun kodni o‘qish va tushunishni osonlashtiradi.
 
