@@ -111,7 +111,7 @@ Quyida `useState` qanday ishlatilishini ko'rsatadigan oddiy misol keltirilgan:
          <p>Salom, bu mening komponentim!</p>
        </div>
      );
-   }
+    }
 
 ### React `useCallback` Hooki
 
