@@ -122,6 +122,24 @@ Quyida `useState` qanday ishlatilishini ko'rsatadigan oddiy misol keltirilgan:
       const memoizedCallback = useCallback(() => {
         // Bu yerda sizning callback logikangiz bo'ladi
       }, [bog'liqlik1, bog'liqlik2, ...]);
+
+# `useContext` Hooki
+
+`useContext` hooki React kutubxonasining kontekstni boshqarish uchun mo'ljallangan hookidir. U komponentlar orasida ma'lumotlarni uzatishda qulaylik yaratadi va prop drilling (props orqali ma'lumotlarni chuqurroq komponentlarga uzatish) muammosini hal qilishga yordam beradi.
+
+## Kontekstni yaratish
+
+Kontekst yaratish uchun `React.createContext` funksiyasidan foydalanamiz. Bu funksiya ikki narsani qaytaradi:
+1. **Kontekst obyekti** - bu `Provider` va `Consumer` komponentlarini o'z ichiga oladi.
+2. **Default qiymat** - bu kontekst yaratilganda berilgan default qiymat bo'ladi.
+
+Misol:
+```jsx
+import React from 'react';
+
+const MyContext = React.createContext('defaultValue');
+
+
 # React Query
 
 React Query - bu React ilovalarida ma'lumotlarni olish, kesh qilish va sinxronizatsiya qilish uchun mo'ljallangan kutubxona. U ma'lumotlarni boshqarishni soddalashtirish va serverdan olingan ma'lumotlar bilan ishlashni qulayroq qilish uchun yordam beradi.
