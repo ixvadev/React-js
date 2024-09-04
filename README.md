@@ -59,6 +59,34 @@ React-da `props` (bu "properties"ning qisqartmasi) komponentlarga ma'lumotlarni 
        const element = <h1>Salom, {name}!</h1>;
 
 
+# Axios haqida
+
+**Axios** — bu JavaScript kutubxonasi bo'lib, HTTP so'rovlarini yuborish va serverdan ma'lumot olishni osonlashtiradi. Asosan, API bilan ishlashda qo'llaniladi.
+
+## Asosiy xususiyatlar
+
+- **Oddiy va qulay foydalanish**: Axios sintaksisi sodda va tushunarli.
+- **Promise asosida ishlaydi**: So'rovlar `Promise` bilan boshqariladi (`then` va `catch` yordamida).
+- **Brauzerlarni qo'llab-quvvatlash**: Axios eski va yangi brauzerlar bilan yaxshi ishlaydi.
+- **Ma'lumotlarni avtomatik formatlash**: JSON formatidagi ma'lumotlarni avtomatik yuboradi va qabul qiladi.
+
+## Oddiy Misollar
+
+### GET so'rovi
+
+Serverdan ma'lumot olish uchun GET so'rovi yuborish:
+
+      import axios from 'axios';
+      
+      axios.get('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => {
+          console.log(response.data); // Ma'lumotlar keldi
+        })
+        .catch(error => {
+          console.error('Xato:', error); // Xatolarni ushlash
+        });
+
+
 # `useState` Nima?
 
 **`useState`** — bu React'dagi *hook* bo'lib, funksional komponentlarda state (holat) boshqarish uchun ishlatiladi. `useState` yordamida komponentning ichki holatini belgilash va keyinchalik o'zgartirish mumkin.
@@ -134,10 +162,10 @@ Kontekst yaratish uchun `React.createContext` funksiyasidan foydalanamiz. Bu fun
 2. **Default qiymat** - bu kontekst yaratilganda berilgan default qiymat bo'ladi.
 
 Misol:
-```jsx
-import React from 'react';
 
-const MyContext = React.createContext('defaultValue');
+      import React from 'react';
+      
+      const MyContext = React.createContext('defaultValue');
 
 
 # React Query
