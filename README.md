@@ -186,6 +186,39 @@ Misol:
       const MyContext = React.createContext('defaultValue');
 
 
+# State Management nima?
+
+**State Management** — bu dastur ichidagi holat (state)ni samarali boshqarish va sinxronlash jarayoni. React yoki boshqa UI kutubxonalarida komponentlar ichidagi ma'lumotlar (holat)ni boshqarish, ularga o'zgartirish kiritish va o'zaro ulashish kerak bo'ladi. Dastur kattalashgan sari holatlarni samarali boshqarish muhim ahamiyatga ega bo'ladi.
+
+## Nima uchun State Management kerak?
+
+- **Murakkablik oshishi**: Dastur kattalashgan sari ko'proq komponentlar va ma'lumotlarni o'zaro ulashish zaruriyati paydo bo'ladi.
+- **Holatni sinxronlashtirish**: Bir nechta komponentlar bitta ma'lumotga tayanishi kerak bo'lganda, buni to'g'ri sinxronlashtirish talab qilinadi.
+- **Ma'lumotlar oqimi**: State management orqali ma'lumotlar oqimini tartibli saqlash va bir xil ko'rinishdagi o'zgarishlarni boshqarish osonlashadi.
+
+## Reactda State Management
+
+Reactda holat (state)ni boshqarish uchun bir nechta usullar mavjud. Kichik loyihalar uchun oddiy `useState` va `useReducer` yetarli bo'lishi mumkin, lekin katta va murakkab loyihalarda keng qamrovli state management kutubxonalaridan foydalanish kerak bo'ladi.
+
+### Reactda Holatni boshqarish usullari:
+
+### 1. **useState**
+- React komponentlarida lokal holatni boshqarish uchun ishlatiladi. Kichik va oddiy holatlar uchun qulay.
+
+      import React, { useState } from 'react';
+      
+      const Counter = () => {
+        const [count, setCount] = useState(0);
+      
+        return (
+          <div>
+            <p>{count}</p>
+            <button onClick={() => setCount(count + 1)}>Increase</button>
+          </div>
+        );
+      };
+
+
 # React Query
 
 React Query - bu React ilovalarida ma'lumotlarni olish, kesh qilish va sinxronizatsiya qilish uchun mo'ljallangan kutubxona. U ma'lumotlarni boshqarishni soddalashtirish va serverdan olingan ma'lumotlar bilan ishlashni qulayroq qilish uchun yordam beradi.
