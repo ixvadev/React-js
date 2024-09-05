@@ -67,13 +67,13 @@ React-da `props` (bu "properties"ning qisqartmasi) komponentlarga ma'lumotlarni 
 ### 1. **O'zgarmas qiymat saqlash:**
 `useRef` komponent ichida biror qiymatni saqlab turadi, va bu qiymat komponent qayta render qilinganda o'zgarmaydi. Bu xuddi bir xil holatni saqlab turishdek, ammo render jarayoniga ta'sir qilmaydi.
 
-```javascript
-import { useRef } from 'react';
 
-const MyComponent = () => {
-  const countRef = useRef(0);  // Dastlabki qiymat 0
-  return <div>{countRef.current}</div>;
-};
+      import { useRef } from 'react';
+      
+      const MyComponent = () => {
+        const countRef = useRef(0);  // Dastlabki qiymat 0
+        return <div>{countRef.current}</div>;
+      };
 
 
 
