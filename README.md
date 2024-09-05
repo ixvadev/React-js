@@ -58,6 +58,24 @@ React-da `props` (bu "properties"ning qisqartmasi) komponentlarga ma'lumotlarni 
        const name = "Dunyo";
        const element = <h1>Salom, {name}!</h1>;
 
+# `useRef` nima?
+
+`useRef` — bu React hooki bo'lib, komponentning o'zgarmas qiymatlarini saqlash va to'g'ridan-to'g'ri DOM elementlariga murojaat qilish imkonini beradi. `useRef` qaytaradigan ob'ekt (reference) komponentlar o'rtasida o'zgarmasdan saqlanadi va komponent qayta render qilinganda o'zgarmaydi.
+
+## `useRef` ning asosiy xususiyatlari
+
+### 1. **O'zgarmas qiymat saqlash:**
+`useRef` komponent ichida biror qiymatni saqlab turadi, va bu qiymat komponent qayta render qilinganda o'zgarmaydi. Bu xuddi bir xil holatni saqlab turishdek, ammo render jarayoniga ta'sir qilmaydi.
+
+```javascript
+import { useRef } from 'react';
+
+const MyComponent = () => {
+  const countRef = useRef(0);  // Dastlabki qiymat 0
+  return <div>{countRef.current}</div>;
+};
+
+
 
 # Axios haqida
 
@@ -209,4 +227,5 @@ const Posts = () => {
 };
 
 export default Posts;
+
 
