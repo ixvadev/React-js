@@ -234,7 +234,7 @@ React Query - bu React ilovalarida ma'lumotlarni olish, kesh qilish va sinxroniz
 
 ## Misol
 
-```jsx
+
 import React from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
@@ -260,5 +260,7 @@ const Posts = () => {
 };
 
 export default Posts;
+
+
 
 
