@@ -272,21 +272,20 @@ SWR (Stale-While-Revalidate) — bu React dasturlari uchun ma'lumot olish va kes
 4. **Xatolar bilan ishlash**: Ma'lumot olishda yuzaga kelgan xatolarni samarali boshqarish imkonini beradi.
 
 ## SWR ishlatilishi:
-```js
-import useSWR from 'swr'
-
-// Ma'lumot olish uchun fetcher funksiyasi
-const fetcher = (url) => fetch(url).then((res) => res.json())
-
-export default function Component() {
-  // Ma'lumot olish uchun SWR hook
-  const { data, error } = useSWR('/api/data', fetcher)
-
-  if (error) return <div>Xato yuz berdi</div>
-  if (!data) return <div>Yuklanmoqda...</div>
-
-  return <div>Ma'lumot: {data.message}</div>
-}
+         import useSWR from 'swr'
+         
+         // Ma'lumot olish uchun fetcher funksiyasi
+         const fetcher = (url) => fetch(url).then((res) => res.json())
+         
+         export default function Component() {
+           // Ma'lumot olish uchun SWR hook
+           const { data, error } = useSWR('/api/data', fetcher)
+         
+           if (error) return <div>Xato yuz berdi</div>
+           if (!data) return <div>Yuklanmoqda...</div>
+         
+           return <div>Ma'lumot: {data.message}</div>
+         }
 
 
 
