@@ -235,31 +235,59 @@ React Query - bu React ilovalarida ma'lumotlarni olish, kesh qilish va sinxroniz
 ## Misol
 
 
-import React from 'react';
-import { useQuery } from 'react-query';
-import axios from 'axios';
+      import React from 'react';
+      import { useQuery } from 'react-query';
+      import axios from 'axios';
+      
+      const fetchPosts = async () => {
+        const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        return data;
+      };
+      
+      const Posts = () => {
+        const { data, error, isLoading } = useQuery('posts', fetchPosts);
+      
+        if (isLoading) return <div>Loading...</div>;
+        if (error) return <div>An error occurred: {error.message}</div>;
+      
+        return (
+          <ul>
+            {data.map(post => (
+              <li key={post.id}>{post.title}</li>
+            ))}
+          </ul>
+        );
+      };
+      
+      export default Posts;
 
-const fetchPosts = async () => {
-  const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
-  return data;
-};
+# SWR (Stale-While-Revalidate)
 
-const Posts = () => {
-  const { data, error, isLoading } = useQuery('posts', fetchPosts);
+SWR (Stale-While-Revalidate) — bu React dasturlari uchun ma'lumot olish va keshlashni osonlashtiruvchi kutubxona. Ushbu kutubxona Vercel tomonidan ishlab chiqilgan va zamonaviy ma'lumot olish strategiyalarini o'z ichiga oladi. SWR nomi **"stale-while-revalidate"** tamoyiliga asoslangan, ya'ni dastlab keshdagi (eskirgan) ma'lumot olinadi, keyin esa yangi ma'lumot fon jarayonida qayta olinadi va yangilanadi.
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred: {error.message}</div>;
+## SWR asosiy imkoniyatlari:
+1. **Ma'lumot olish va keshlash**: Ma'lumotlar avtomatik ravishda keshlanadi va yangi ma'lumotlar kelguniga qadar ishlatiladi.
+2. **Revalidatsiya**: Ma'lumotlar fon jarayonida yangilanadi va foydalanuvchiga yangi ma'lumot yetkaziladi.
+3. **Avtomatik qayta sinxronlash**: Ma'lumotlar real vaqt rejimida yangilanadi.
+4. **Xatolar bilan ishlash**: Ma'lumot olishda yuzaga kelgan xatolarni samarali boshqarish imkonini beradi.
 
-  return (
-    <ul>
-      {data.map(post => (
-        <li key={post.id}>{post.title}</li>
-      ))}
-    </ul>
-  );
-};
+## SWR ishlatilishi:
+```js
+import useSWR from 'swr'
 
-export default Posts;
+// Ma'lumot olish uchun fetcher funksiyasi
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
+export default function Component() {
+  // Ma'lumot olish uchun SWR hook
+  const { data, error } = useSWR('/api/data', fetcher)
+
+  if (error) return <div>Xato yuz berdi</div>
+  if (!data) return <div>Yuklanmoqda...</div>
+
+  return <div>Ma'lumot: {data.message}</div>
+}
+
 
 
 
