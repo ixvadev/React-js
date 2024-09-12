@@ -219,47 +219,7 @@ Reactda holat (state)ni boshqarish uchun bir nechta usullar mavjud. Kichik loyih
       };
 
 
-# React Query
 
-React Query - bu React ilovalarida ma'lumotlarni olish, kesh qilish va sinxronizatsiya qilish uchun mo'ljallangan kutubxona. U ma'lumotlarni boshqarishni soddalashtirish va serverdan olingan ma'lumotlar bilan ishlashni qulayroq qilish uchun yordam beradi.
-
-## Asosiy Xususiyatlar
-
-1. **Avtomatik Kesh**: Ma'lumotlarni avtomatik ravishda kesh qiladi va keyingi so'rovlar uchun qayta ishlatadi.
-2. **Sinxronizatsiya**: Ma'lumotlar avtomatik ravishda yangilanadi, real vaqt rejimida yangilangan ma'lumotlarni ko'rsatadi.
-3. **So'rovni Qayta Amalga Oshirish**: Agar so'rov muvaffaqiyatsiz bo'lsa yoki ma'lumotlar yangilangan bo'lsa, so'rovni qayta amalga oshiradi.
-4. **So'rovlar va Keshni Boshqarish**: Turli so'rovlar va keshlarni boshqarish imkoniyatlari mavjud.
-5. **Sodda API**: Oddiy va tushunarli API.
-6. **Qulay DevTools**: So'rovlar va ma'lumotlar holatini kuzatishni osonlashtiradi.
-
-## Misol
-
-
-      import React from 'react';
-      import { useQuery } from 'react-query';
-      import axios from 'axios';
-      
-      const fetchPosts = async () => {
-        const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
-        return data;
-      };
-      
-      const Posts = () => {
-        const { data, error, isLoading } = useQuery('posts', fetchPosts);
-      
-        if (isLoading) return <div>Loading...</div>;
-        if (error) return <div>An error occurred: {error.message}</div>;
-      
-        return (
-          <ul>
-            {data.map(post => (
-              <li key={post.id}>{post.title}</li>
-            ))}
-          </ul>
-        );
-      };
-      
-      export default Posts;
 
 # SWR (Stale-While-Revalidate)
 
